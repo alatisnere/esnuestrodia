@@ -27,7 +27,7 @@
 :root{
   --papel:#FBF9F6; --arena:#EDE4DA; --lino:#F3EDE5;
   --tinta:#3A322C; --suave:#6E655D;
-  --tan:#977A63; --tan-osc:#7E6350; --cielo:#5D7B9F; --cielo-osc:#4A6580;
+  --tan:#977A63; --tan-txt:#7E6350; --tan-osc:#6B5340; --cielo:#5D7B9F; --cielo-osc:#4A6580;
   --linea:rgba(58,50,44,.16);
   --ease-out:cubic-bezier(.23,1,.32,1);
   --ease-io:cubic-bezier(.77,0,.175,1);
@@ -60,7 +60,7 @@ h3{font-size:1.16rem}
 .script{font-family:Script,cursive;color:var(--tan);line-height:.9;
   font-size:clamp(3rem,7.6vw,5.2rem);display:inline-block;padding-right:.08em}
 .kicker{font-family:UI,sans-serif;font-weight:400;font-size:.66rem;letter-spacing:.34em;
-  text-transform:uppercase;color:var(--tan)}
+  text-transform:uppercase;color:var(--tan-txt)}
 .lead{font-family:Serif,Georgia,serif;font-weight:300;font-size:clamp(1.24rem,2.3vw,1.5rem);
   line-height:1.62;color:var(--suave)}
 .rule{display:block;margin:26px auto;width:230px;opacity:.9}
@@ -71,16 +71,16 @@ h3{font-size:1.16rem}
   display:inline-flex;align-items:center;justify-content:center;
   font-family:UI,sans-serif;font-weight:400;font-size:.72rem;letter-spacing:.22em;
   text-transform:uppercase;text-decoration:none;padding:19px 40px;
-  background:var(--tan);color:var(--papel);border:1px solid var(--tan);
+  background:var(--tan-txt);color:var(--papel);border:1px solid var(--tan-txt);
   transition:transform 160ms var(--ease-out),background 200ms ease,color 200ms ease;
 }
 .btn:active{transform:scale(.97)}
-.btn.line{background:transparent;color:var(--tan-osc);border-color:var(--tan)}
+.btn.line{background:transparent;color:var(--tan-osc);border-color:var(--tan-txt)}
 .btn.papel{background:var(--papel);color:var(--tan-osc);border-color:var(--papel)}
 .btn.papel-line{background:transparent;color:var(--papel);border-color:rgba(251,249,246,.55)}
 @media (hover:hover) and (pointer:fine){
   .btn:hover{background:var(--tan-osc);border-color:var(--tan-osc)}
-  .btn.line:hover{background:var(--tan);color:var(--papel)}
+  .btn.line:hover{background:var(--tan-txt);color:var(--papel)}
   .btn.papel:hover{background:var(--arena);border-color:var(--arena)}
   .btn.papel-line:hover{background:rgba(251,249,246,.12);border-color:var(--papel)}
 }
@@ -97,7 +97,9 @@ header{position:sticky;top:0;z-index:40;background:rgba(251,249,246,.9);
 .bar nav{display:flex;align-items:center;gap:34px;font-family:UI,sans-serif;
   font-weight:300;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
 .bar nav a{text-decoration:none;color:var(--suave);transition:color 200ms ease}
-@media (hover:hover){.bar nav a:hover{color:var(--tinta)}}
+@media (hover:hover){.bar nav a:hover{color:var(--tinta)}
+.bar nav a.btn{color:var(--papel)}
+.bar nav a.btn:hover{color:var(--papel)}}
 .bar .btn{padding:13px 26px;font-size:.64rem}
 @media(max-width:880px){.bar nav a.hm{display:none}}
 
@@ -139,7 +141,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(251,249,246,.9);
 .sc-date{font-family:Display,serif;font-size:.78rem;letter-spacing:.34em;margin-top:6px}
 .sc-ram{width:34px;margin:14px auto}
 .sc-line{font-family:Serif,serif;font-size:1.02rem;line-height:1.5;color:var(--suave)}
-.sc-btn{margin-top:16px;border:1px solid var(--tan);color:var(--tan-osc);
+.sc-btn{margin-top:16px;border:1px solid var(--tan-txt);color:var(--tan-osc);
   font-family:UI,sans-serif;font-weight:300;font-size:.6rem;letter-spacing:.22em;
   text-transform:uppercase;padding:13px}
 
@@ -162,7 +164,7 @@ section{padding:clamp(72px,9vw,124px) 0}
 .item p{margin:0;font-family:Serif,serif;font-weight:300;font-size:1.14rem;line-height:1.55;
   color:var(--suave)}
 .item .num{font-family:UI,sans-serif;font-weight:300;font-size:.62rem;letter-spacing:.24em;
-  color:var(--tan);display:block;margin-bottom:12px}
+  color:var(--tan-txt);display:block;margin-bottom:12px}
 
 /* pasos */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(30px,5vw,64px);text-align:center}
@@ -180,7 +182,13 @@ section{padding:clamp(72px,9vw,124px) 0}
 .card{background:var(--papel);max-width:700px;margin:0 auto;padding:clamp(40px,6vw,68px) clamp(28px,5vw,64px);
   text-align:center;box-shadow:0 34px 70px -46px rgba(58,50,44,.55)}
 .card .mono{width:76px;margin:0 auto 26px}
-.price{font-family:Display,serif;font-size:clamp(3.2rem,8vw,4.6rem);line-height:1}
+.price{font-family:Display,serif;font-size:clamp(3.2rem,8vw,4.6rem);line-height:1;
+  display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap}
+.price .sig{font-family:UI,sans-serif;font-weight:300;font-size:.36em;line-height:1;
+  transform:translateY(-.62em);display:inline-block}
+.price .mxn{font-family:UI,sans-serif;font-weight:400;font-size:.17em;letter-spacing:.2em;
+  color:var(--suave);transform:translateY(-2.1em);display:inline-block;margin-left:.55em}
+.price small{width:100%}
 .price small{display:block;font-family:UI,sans-serif;font-weight:300;font-size:.68rem;
   letter-spacing:.22em;text-transform:uppercase;color:var(--suave);margin-top:16px}
 .incl{list-style:none;padding:0;margin:34px 0 0;text-align:left;
@@ -295,7 +303,7 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
 .lista-items li{padding:20px 0 20px 54px;border-bottom:1px solid var(--linea);position:relative}
 .lista-items li:last-child{border:0}
 .lista-items .n{position:absolute;left:0;top:24px;font-family:UI,sans-serif;font-weight:300;
-  font-size:.62rem;letter-spacing:.2em;color:var(--tan)}
+  font-size:.62rem;letter-spacing:.2em;color:var(--tan-txt)}
 .lista-items b{display:block;font-family:Display,serif;font-weight:400;font-size:1.14rem;
   margin-bottom:5px}
 .lista-items p{margin:0;font-family:Serif,serif;font-weight:300;font-size:1.14rem;
@@ -322,7 +330,7 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
       <span>Es Nuestro Día</span>
     </a>
     <nav>
-      <a class="hm" href="#incluye">La página</a>
+      <a class="hm" href="#incluye">Lo que incluye</a>
       <a class="hm" href="#precio">Precio</a>
       <a class="hm" href="#dudas">Dudas</a>
       <a class="btn" href="https://instagram.com/esnuestrodia" target="_blank" rel="noopener">Escríbenos</a>
@@ -345,7 +353,7 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
       contestar.</p>
       <div class="cta-row">
         <a class="btn" href="https://instagram.com/esnuestrodia" target="_blank" rel="noopener">Pedir un ejemplo</a>
-        <a class="btn line" href="#incluye">Ver qué lleva</a>
+        <a class="btn line" href="#incluye">Ver qué incluye</a>
       </div>
       <div class="hero-note">Entrega en dos semanas · Pago único</div>
     </div>
@@ -357,9 +365,9 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
             <div class="wash2"></div>
             <div class="sc-arch"></div>
             <div class="sc-names">
-              <div class="n">Valeria</div>
+              <div class="n">Ana</div>
               <div class="amp">&amp;</div>
-              <div class="n">César</div>
+              <div class="n">Luis</div>
             </div>
           </div>
           <div class="sc-scallop">
@@ -387,11 +395,11 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
 <section class="lino" id="incluye">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="kicker">Lo que lleva</div>
+      <div class="kicker">Lo que incluye</div>
       <img class="rule" src="/img/filete-tan.svg" alt="" width="230" height="18">
       <h2>Todo lo que sus invitados<br>van a preguntar</h2>
-      <p class="lead">Cada página se arma con ustedes. Estas son las secciones que casi siempre
-      terminan adentro.</p>
+      <p class="lead">Estas son las secciones con las que trabajamos. Ustedes eligen cuáles
+      entran y cuáles no, y nosotros las llenamos con sus textos, sus fotos y sus colores.</p>
     </div>
 
     <div class="items">
@@ -423,7 +431,7 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
         después, en la misma dirección que ya todos tienen.</p></div>
       <div class="item rv"><span class="num">08</span>
         <h3>Su propia dirección</h3>
-        <p>Algo como <em>valeriaycesar.esnuestrodia.com</em>. Fácil de dictar y se ve bien
+        <p>Algo como <em>anayluis.esnuestrodia.com</em>. Fácil de dictar y se ve bien
         cuando llega el mensaje.</p></div>
     </div>
   </div>
@@ -471,11 +479,12 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
       <div class="rv">
         <ul class="lista-items">
           <li><span class="n">01</span><b>Ustedes reparten los boletos</b>
-            <p>Cada invitación lleva los lugares que ustedes decidan: dos por pareja, cuatro
-            para los papás, seis para los padrinos. Nadie llega de más.</p></li>
-          <li><span class="n">02</span><b>Sus reglas se aplican solas</b>
-            <p>¿Boda sin niños? ¿Sin acompañante, salvo las excepciones que ustedes marquen?
-            La página lo respeta por ustedes, para que no tengan que decir que no de frente.</p></li>
+            <p>Cada invitación lleva los lugares que ustedes decidan. Por ejemplo: dos
+            para una pareja, cuatro para una familia, seis para los papás. Nadie llega de más.</p></li>
+          <li><span class="n">02</span><b>Sus reglas, aplicadas por la página</b>
+            <p>Si la boda es sin niños, o si cada invitación trae un número fijo de lugares,
+            la página no deja confirmar de más. Ustedes fijan la regla una vez y ya no tienen
+            que andar diciendo que no, invitado por invitado.</p></li>
           <li><span class="n">03</span><b>Un enlace para cada familia</b>
             <p>Cada quien recibe el suyo y confirma únicamente por las personas que le tocan.</p></li>
           <li><span class="n">04</span><b>El avance, al momento</b>
@@ -499,10 +508,11 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
       <div>
         <div class="kicker">Se ve como su boda</div>
         <img class="rule left" src="/img/filete-tan.svg" alt="" width="230" height="18">
-        <span class="script">No como una plantilla</span>
-        <p>Elegimos con ustedes los colores, la tipografía y las fotos, para que la página se
-        parezca a su boda y no a la boda de alguien más. Es la diferencia entre llenar un
-        formulario y que alguien la haga.</p>
+        <span class="script">No como la de todos</span>
+        <p>Elegimos juntos los colores, la tipografía y las fotos, y decidimos qué secciones
+        entran y cuáles sobran. Partimos de secciones que ya existen y las adaptamos a su boda:
+        por eso se entrega en dos semanas y cuesta lo que cuesta, en vez de costar cinco veces
+        más.</p>
       </div>
     </div>
   </div>
@@ -548,7 +558,7 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
     </div>
     <div class="card rv">
       <img class="mono" src="/img/isotipo.svg" alt="" width="76" height="76">
-      <div class="price">$5,500<small>pesos · pago único · anticipo de 50%</small></div>
+      <div class="price"><span class="sig">$</span>5,500<span class="mxn">MXN</span><small>pesos mexicanos · pago único · anticipo de 50%</small></div>
       <ul class="incl">
         <li>Página completa en su dirección</li>
         <li>Itinerario con mapas</li>
@@ -558,8 +568,8 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
         <li>Código de vestimenta</li>
         <li>Hospedaje y mesa de regalos</li>
         <li>Galería de fotos</li>
-        <li>Una ronda de cambios grandes</li>
-        <li>En línea hasta dos meses después</li>
+        <li>Dos rondas de ajustes incluidas</li>
+        <li>En línea hasta un mes después</li>
       </ul>
       <div class="cta-row" style="justify-content:center">
         <a class="btn" href="https://instagram.com/esnuestrodia" target="_blank" rel="noopener">Apartar fecha</a>
@@ -590,11 +600,14 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
         <div class="ans">Dos semanas desde que nos pasan la información. Si su boda es en menos de
         tres semanas, avísennos: se puede, con un cargo por urgencia.</div></details>
       <details><summary>¿Podemos cambiar cosas después?</summary>
-        <div class="ans">Sí. Incluye una ronda de cambios grandes y los ajustes chicos que vayan
-        saliendo, que si cambió la hora, que si se sumó un hotel. No los andamos contando.</div></details>
+        <div class="ans">Sí, con un límite claro para que no se vuelva interminable: la entrega
+        incluye <b>dos rondas de ajustes</b>. En cada una nos mandan todos sus comentarios juntos
+        y nosotros los aplicamos. A partir de la tercera ronda los cambios se cobran aparte, y
+        siempre les decimos cuánto antes de hacerlos. Corregir algo que salió mal por error
+        nuestro nunca cuenta como ronda.</div></details>
       <details><summary>¿Qué pasa después de la boda?</summary>
-        <div class="ans">La página sigue en línea dos meses más, que es cuando la gente entra a ver
-        las fotos. Si la quieren dejar más tiempo, se puede.</div></details>
+        <div class="ans">La página sigue en línea un mes más, que es cuando la gente entra a ver
+        las fotos. Si la quieren dejar más tiempo, se puede con un costo adicional.</div></details>
     </div>
   </div>
 </section>
