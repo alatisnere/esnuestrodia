@@ -99,9 +99,14 @@ header{position:sticky;top:0;z-index:40;background:rgba(251,249,246,.9);
 .bar nav{display:flex;align-items:center;gap:34px;font-family:UI,sans-serif;
   font-weight:300;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
 .bar nav a{text-decoration:none;color:var(--suave);transition:color 200ms ease}
-@media (hover:hover){.bar nav a:hover{color:var(--tinta)}
+/* Fuera del @media de hover a propósito: `.bar nav a` gana en especificidad
+   sobre `.btn`, así que sin esta línea el botón hereda el color del texto de
+   navegación y queda café sobre café. En pantallas táctiles no hay hover y
+   antes esta regla vivía dentro de ese bloque, o sea que no se aplicaba. */
 .bar nav a.btn{color:var(--papel)}
-.bar nav a.btn:hover{color:var(--papel)}}
+@media (hover:hover){
+  .bar nav a:hover{color:var(--tinta)}
+  .bar nav a.btn:hover{color:var(--papel)}}
 .bar .btn{padding:13px 26px;font-size:.64rem}
 @media(max-width:880px){.bar nav a.hm{display:none}}
 
