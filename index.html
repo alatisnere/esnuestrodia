@@ -687,5 +687,11 @@ document.getElementById('y').textContent = new Date().getFullYear();
   els.forEach(function (el) { io.observe(el); });
 })();
 </script>
+
+<!-- Cloudflare Web Analytics: sin cookies, no identifica a nadie, no hace falta
+     aviso de consentimiento. Carga como módulo (diferido por definición), así
+     que no retrasa el pintado. El token es público, no es una credencial. -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "3d7b0a79dd2b43f29846eb8cab04c012"}'></script>
 </body>
 </html>
