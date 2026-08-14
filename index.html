@@ -202,6 +202,12 @@ section{padding:clamp(72px,9vw,124px) 0}
   transform:translateY(-.62em);display:inline-block}
 .price .mxn{font-family:UI,sans-serif;font-weight:400;font-size:.17em;letter-spacing:.2em;
   color:var(--suave);transform:translateY(-2.1em);display:inline-block;margin-left:.55em}
+.price .antes{font-family:Display,serif;font-size:.44em;color:var(--suave);
+  align-self:center;margin-right:.42em;text-decoration:line-through;
+  text-decoration-color:var(--tan);text-decoration-thickness:2px}
+.promo{display:inline-block;font-family:UI,sans-serif;font-weight:500;font-size:.62rem;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--tan-osc);
+  border:1px solid var(--tan);border-radius:100px;padding:7px 18px;margin:0 0 24px}
 .price small{width:100%}
 .price small{display:block;font-family:UI,sans-serif;font-weight:300;font-size:.68rem;
   letter-spacing:.22em;text-transform:uppercase;color:var(--suave);margin-top:16px}
@@ -580,7 +586,8 @@ footer{padding:52px 0;border-top:1px solid var(--linea)}
     </div>
     <div class="card rv">
       <img class="mono" src="/img/isotipo.svg" alt="" width="76" height="76">
-      <div class="price"><span class="sig">$</span>5,500<span class="mxn">MXN</span><small>pesos mexicanos · pago único · anticipo de 50%</small></div>
+      <div class="promo">Promoción de temporada</div>
+      <div class="price"><span class="antes">$5,500</span><span class="sig">$</span>3,000<span class="mxn">MXN</span><small>pesos mexicanos · pago único · anticipo de 50%</small></div>
       <ul class="incl">
         <li>Página completa en su dirección</li>
         <li>Itinerario con mapas</li>
