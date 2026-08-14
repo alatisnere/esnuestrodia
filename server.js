@@ -30,6 +30,15 @@ http.createServer((req, res) => {
   }
   if (urlPath.endsWith('/')) urlPath += 'index.html';
 
+  // Atajos de campana: la misma portada, en una direccion propia, para poder
+  // distinguir de donde llega la visita. Cloudflare Web Analytics solo guarda
+  // la ruta, no la query string, asi que los UTM no servirian aqui.
+  const ATAJOS = {
+    '/ig': 'Instagram (liga de la biografia)',
+    '/ig/index.html': 'Instagram (liga de la biografia)',
+  };
+  if (ATAJOS[urlPath]) urlPath = '/index.html';
+
   const filePath = path.join(ROOT, path.normalize(urlPath));
   if (!filePath.startsWith(ROOT)) {
     res.writeHead(403).end('Forbidden');
