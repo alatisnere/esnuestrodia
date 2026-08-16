@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /ig
+Disallow: /st
 Sitemap: https://esnuestrodia.com/sitemap.xml

@@ -36,6 +36,8 @@ http.createServer((req, res) => {
   const ATAJOS = {
     '/ig': 'Instagram (liga de la biografia)',
     '/ig/index.html': 'Instagram (liga de la biografia)',
+    '/st': 'Instagram (calcomania de liga en historias)',
+    '/st/index.html': 'Instagram (calcomania de liga en historias)',
   };
   if (ATAJOS[urlPath]) urlPath = '/index.html';
 
